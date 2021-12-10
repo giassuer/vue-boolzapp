@@ -48,7 +48,7 @@
                         <!-- users list -->
                         <div class="users-list">
                             <ul>
-                                <li v-for="(element, index) in contacts">
+                                <li @click = 'contactSelct(index)' v-for="(element, index) in contacts">
                                     <div class="user-dati flex align-i-center">
                                         <div class="user-img"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></div>
                                         <div class="user-name">{{ element.name }}</div>
@@ -63,7 +63,7 @@
                     <div class="user flex">
                         <div class="user-dati flex align-i-center">
                             <div class="user-img"><img src="img/avatar_io.jpg" alt=""></div>
-                            <div class="user-name">Nome Utente</div>
+                            <div class="user-name">{{contacts[selectedContact].name}}</div>
                         </div>
                         <div class="user-options flex align-i-center">
                             <div><i class="fas fa-search"></i></div>
@@ -72,23 +72,23 @@
                         </div>
                     </div>
                     <!-- message container -->
-                    <div id="message-container" class="message-container">
-                        <div class="wraooer-message-received flex">
+                    <div class="message-container">
+                        <div v-for="(element, index) in contacts[selectedContact].messages" class="wraooer-message-received flex">
                             <div class="received flex">
                                 <div class="message-received">
-                                    <div>La marianna va in campagna</div>
+                                    <div>{{element.text}}</div>
                                     <div class="date">28/03/2022 10:10:40</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="wraooer-message-sent flex">
+                        <!-- <div class="wraooer-message-sent flex">
                             <div class="sent flex">
                                 <div class="message-sent">
                                     <div>Sicuro di nin aver sbagliato?</div>
                                     <div class="date">{28/03/2022 10:10:40}</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- send message -->
                     <div class="send-message flex align-i-center">

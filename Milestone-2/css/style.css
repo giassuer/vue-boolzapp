@@ -84,6 +84,7 @@
 .message-container{
     background-image: url("../img/mine.jpg");
     height: calc(100% - 20%);
+    overflow: hidden;
 }
 
 .message-received-received{

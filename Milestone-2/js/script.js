@@ -5,6 +5,8 @@ const app = new Vue(
         el: '#root',
         data: {
 
+            selectedContact: 0,
+
             sendMessage: '',
 
             contacts: [
@@ -96,7 +98,9 @@ const app = new Vue(
         },
         methods: {
 
-           
+           contactSelct: function(indice){
+            this.selectedContact = indice
+           }
     
         }
     }
