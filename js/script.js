@@ -7,8 +7,6 @@ const app = new Vue(
 
             sendMessage: '',
 
-            messageContainer = document.getElementById('message-container'),
-
             contacts: [
                 {
                     name: 'Michele',
@@ -97,6 +95,8 @@ const app = new Vue(
             
         },
         methods: {
+
+           
     
         }
     }
