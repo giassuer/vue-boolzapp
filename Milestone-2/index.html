@@ -73,18 +73,18 @@
                     </div>
                     <!-- message container -->
                     <div class="message-container">
-                        <div v-for="(element, index) in contacts[selectedContact].messages" class="wraooer-message-received flex">
-                            <div class="received flex">
-                                <div class="message-received">
+                        <div v-for="(element, index) in contacts[selectedContact].messages" class="flex" :class="{'wraooer-message-received': element.status === 'received', 'wraooer-message-sent': element.status === 'sent'}">
+                            <div class="flex" :class="{'received': element.status === 'received', 'sent': element.status === 'sent'}">
+                                <div :class="{'message-received': element.status === 'received', 'message-sent': element.status === 'sent'}">
                                     <div>{{element.text}}</div>
                                     <div class="date">28/03/2022 10:10:40</div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="wraooer-message-sent flex">
+                        <!-- <div v-for="(element, index) in contacts[selectedContact].messages" class="wraooer-message-sent flex">
                             <div class="sent flex">
-                                <div class="message-sent">
-                                    <div>Sicuro di nin aver sbagliato?</div>
+                                <div :class="{'message-sent': element.status === 'sent'}">
+                                    <div>{{element.text}}</div>
                                     <div class="date">{28/03/2022 10:10:40}</div>
                                 </div>
                             </div>
