@@ -1,5 +1,6 @@
 // Milestone 2
-// Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
+// Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi
+// relativi al contatto attivo all’interno del pannello della conversazione
 // Click sul contatto mostra la conversazione del contatto cliccato
 
 
@@ -13,7 +14,11 @@ const app = new Vue(
 
             selectedContact: 0,
 
-            sendMessage: '',
+            sendMessage: {
+                date: '10/01/2020 15:30:55',
+                text: '',
+                status: 'sent'
+            },
 
             contacts: [
                 {
@@ -108,12 +113,7 @@ const app = new Vue(
                 this.selectedContact = indice
            },
 
-           received: function(){
-                let received = ''
-                if (this.messages.status === 'received') {
-                    received = messages.text
-                }
-           }
+           
     
         }
     }
