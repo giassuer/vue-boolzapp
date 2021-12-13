@@ -63,7 +63,7 @@
                 <div class="col-right">
                     <div class="user flex">
                         <div class="user-dati flex align-i-center">
-                            <div class="user-img"><img src="img/avatar_io.jpg" alt=""></div>
+                            <div class="user-img"><img :src="'img/avatar' + contacts[selectedContact].avatar + '.jpg'" alt=""></div>
                             <div class="user-name">{{contacts[selectedContact].name}}</div>
                         </div>
                         <div class="user-options flex align-i-center">
