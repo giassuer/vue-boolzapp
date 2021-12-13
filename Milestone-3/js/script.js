@@ -1,6 +1,8 @@
 // Milestone 3
-// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter”
+// il testo viene aggiunto al thread sopra, come messaggio verde
+// Risposta dall’interlocutore: ad ogni inserimento di un messaggio,
+// l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
 
 
@@ -13,11 +15,9 @@ const app = new Vue(
 
             selectedContact: 0,
 
-            sendMessage: {
-                date: '10/01/2020 15:30:55',
-                text: '',
-                status: 'sent'
-            },
+            sendMessage: '',
+                
+            
 
             contacts: [
                 {
@@ -112,20 +112,27 @@ const app = new Vue(
                 this.selectedContact = indice
            },
 
-           newMessage: function(){
-            if (this.sendMessage.text !== '') {
-                const myMessages = { messages:  [
+           newMessage: function(){  
+             if (this.sendMessage !== '') {
+                const newMessage = 
                 {
-                    text: this.sendMessage.text,
                     date: '10/01/2020 15:30:55',
+                    text: this.sendMessage,
                     status: 'sent'
-                },
-            ],
-             } 
-                this.contacts.push(myMessages)
-                this.sendMessage.text = ''
+                };
+                this.contacts[this.selectedContact].messages.push(newMessage)
+                this.sendMessage = ''
             }
-           }
+            
+            const receivedMessage = 
+                 {
+                     date: '10/01/2020 15:30:55',
+                     text: 'ok',
+                     status: 'received'
+                 };
+
+            setTimeout(() => this.contacts[this.selectedContact].messages.push(receivedMessage), 1000);
+          }
     
         }
     }
