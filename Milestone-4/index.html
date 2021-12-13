@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="root">
+
+        <div class="wrapper flex">
+            <!-- main -->
+            <div class="main-container flex">
+                <!-- col-left -->
+                <div class="col-left">
+                    <!-- user dati -->
+                    <div class="user flex">
+                        <div class="user-dati flex align-i-center">
+                            <div class="user-img"><img src="img/avatar_io.jpg" alt=""></div>
+                            <div class="user-name">Nome Utente</div>
+                        </div>
+                        <div class="user-options flex align-i-center">
+                            <div><i class="fas fa-circle-notch"></i></div>
+                            <div><i class="fas fa-comment-alt"></i></div>
+                            <div><i class="fas fa-ellipsis-v"></i></div>
+                        </div>
+                    </div>
+                    <!-- ricevi notifiche -->
+                    <div class="notifiche flex align-i-center">
+                        <div class="user-img"><i class="fas fa-bell-slash"></i></div>
+                        <div class="active-notifiche">
+                            <div>Ricevi notifiche du nuovi messaggi</div>
+                            <div class="grey">Attiva notifiche desktop</div>
+                        </div>
+                    </div>
+                    <!-- users -->
+                    <div class="users-container">
+                        <div class="search-barr flex">
+                            <div><i class="fas fa-search"></i></div>
+                            <input @keyup="filter()" type="search" name="" id="" placeholder="Crea o inizia una nuova chat" v-model="userFilter">
+                        </div>
+                        <!-- users list -->
+                        <div class="users-list">
+                            <ul>
+                                <li @click = 'contactSelct(index)' v-if="element.visible === true" v-for="(element, index) in contacts">
+                                    <div class="user-dati flex align-i-center">
+                                        <div class="user-img"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></div>
+                                        <div class="user-name">{{ element.name }}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- col right -->
+                <div class="col-right">
+                    <div class="user flex">
+                        <div class="user-dati flex align-i-center">
+                            <div class="user-img"><img src="img/avatar_io.jpg" alt=""></div>
+                            <div class="user-name">{{contacts[selectedContact].name}}</div>
+                        </div>
+                        <div class="user-options flex align-i-center">
+                            <div><i class="fas fa-search"></i></div>
+                            <div><i class="fas fa-paperclip"></i></div>
+                            <div><i class="fas fa-ellipsis-v"></i></div>
+                        </div>
+                    </div>
+                    <!-- message container -->
+                    <div class="message-container">
+                        <div v-for="(element, index) in contacts[selectedContact].messages" class="flex" 
+                             :class="{'wraooer-message-received': element.status === 'received', 'wraooer-message-sent': element.status === 'sent'}">
+                            <div class="flex" :class="{'received': element.status === 'received', 'sent': element.status === 'sent'}">
+                                <div :class="{'message-received': element.status === 'received', 'message-sent': element.status === 'sent'}">
+                                    <div>{{element.text}}</div>
+                                    <div class="date">{{element.date}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div v-for="(element, index) in contacts[selectedContact].messages" class="wraooer-message-sent flex">
+                            <div class="sent flex">
+                                <div :class="{'message-sent': element.status === 'sent'}">
+                                    <div>{{element.text}}</div>
+                                    <div class="date">{28/03/2022 10:10:40}</div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- send message -->
+                    <div class="send-message flex align-i-center">
+                        <div class="message-icon"><i class="far fa-smile"></i></div>
+                        <div class="send-barr">
+                            <input @keyup.enter="newMessage()" type="text" name="" id="" placeholder="scrivi un messaggio" v-model="sendMessage">
+                        </div>
+                        <div class="message-icon"><i class="fas fa-microphone"></i></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
