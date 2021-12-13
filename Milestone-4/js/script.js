@@ -135,7 +135,7 @@ const app = new Vue(
 
           filter: function(){
               this.contacts.forEach(element => {
-                if (element.name.includes(this.userFilter)) {
+                if (element.name.toLowerCase().includes(this.userFilter.toLowerCase())) {
                     element.visible = true
                   }else {
                     element.visible = false
