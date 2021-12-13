@@ -42,7 +42,8 @@
                     </div>
                     <!-- users -->
                     <div class="users-container">
-                        <div class="search-barr">
+                        <div class="search-barr flex">
+                            <div><i class="fas fa-search"></i></div>
                             <input type="search" name="" id="" placeholder="Crea o inizia una nuova chat">
                         </div>
                         <!-- users list -->
@@ -77,7 +78,7 @@
                             <div class="flex" :class="{'received': element.status === 'received', 'sent': element.status === 'sent'}">
                                 <div :class="{'message-received': element.status === 'received', 'message-sent': element.status === 'sent'}">
                                     <div>{{element.text}}</div>
-                                    <div class="date">28/03/2022 10:10:40</div>
+                                    <div class="date">{{element.date}}</div>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +95,7 @@
                     <div class="send-message flex align-i-center">
                         <div class="message-icon"><i class="far fa-smile"></i></div>
                         <div class="send-barr">
-                            <input @keyup="newMessage()" type="text" name="" id="" placeholder="scrivi un messaggio" v-model="sendMessage.text">
+                            <input @keyup.enter="newMessage()" type="text" name="" id="" placeholder="scrivi un messaggio" v-model="sendMessage.text">
                         </div>
                         <div class="message-icon"><i class="fas fa-microphone"></i></div>
                     </div>
