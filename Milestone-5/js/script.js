@@ -1,7 +1,8 @@
-// Milestone 4, opzionale per oggi:
-// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo
-// i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina ->
-//  Scrivo “mar” rimangono solo Marco e Martina)
+// Milestone 5
+// Cancella messaggio: cliccando sul messaggio appare un menu a tendina
+//  che permette di cancellare il messaggio selezionato
+// Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti.
+// (Gli screenshot per la milestone 5 li trovate alla fine di questo messaggio)
 
 
 
