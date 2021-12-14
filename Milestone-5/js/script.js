@@ -14,7 +14,7 @@ const app = new Vue(
 
             selectedContact: 0,
 
-            selectMessage: 0,
+            selectMessage: null,
 
             sendMessage: '',
                 
@@ -154,12 +154,6 @@ const app = new Vue(
           selectMessageDelate: function(indice){
             this.selectMessage = indice
           },
-
-          selectLastMessage: function(){
-            this.contacts.messages.forEach(element, index =>{
-                this.lastMessage = element[0].text
-            })
-          }
     
         }
     }

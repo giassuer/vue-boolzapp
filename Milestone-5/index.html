@@ -56,8 +56,14 @@
                                     :class="{'active': index === selectedContact}">
                                     <div class="user-dati flex align-i-center">
                                         <div class="user-img"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></div>
-                                        <div class="user-name">{{ element.name }}</div>
-                                        <div>{{ lastMessage }}</div>
+                                        <div class="userContainer flex">
+                                            <div>
+                                                <div class="user-name">{{ element.name }}</div>
+                                                <div class="last-msg">{{ element.messages[element.messages.length - 1].text }}</div>
+                                            </div>
+                                            <div class="last-date">{{ element.messages[element.messages.length - 1].date }}</div>
+
+                                        </div>
                                     </div>
                                 </li>
                             </ul>

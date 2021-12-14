@@ -80,6 +80,20 @@
 .users-list{
     overflow-y: auto;
 }
+
+.userContainer{
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+}
+
+.last-msg{
+    font-size: 12px;
+}
+
+.last-date{
+    font-size: 10px;
+}
 /* end users */
 
 /* end col left */
@@ -178,16 +192,8 @@
    cursor: pointer;
 }
 
-.info{
-   
-}
-
 .info :hover{
     background-color: lightgray;
-}
-
-.delate{
-   
 }
 
 .delate :hover{
@@ -258,7 +264,7 @@ li :hover{
 }
 
 .user-dati{
-    width: 50%;
+    width: 100%;
 }
 
 .user-name{
