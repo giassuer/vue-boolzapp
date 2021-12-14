@@ -91,15 +91,16 @@
     border-left: 1px solid lightgrey;
 }
 
+.last-access{
+    font-size: 12px;
+    padding: 0px 5px;
+}
+
 .message-container{
     background-image: url("../img/mine.jpg");
     height: calc(100% - 20%);
     padding: 40px 10px 5px 5px;
     overflow-y: auto;
-}
-
-.message-received-received{
-
 }
 
 .wraooer-message-sent{
@@ -187,6 +188,7 @@ i{
     width: 30px;
     border-radius: 50%;
     overflow: hidden;
+    margin-right: 5px;
 }
 
 .grey{
@@ -201,6 +203,10 @@ li{
 }
 
 li :hover{
+    background-color: #e9ebeb;
+}
+
+.active{
     background-color: #e9ebeb;
 }
 

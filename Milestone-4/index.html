@@ -49,7 +49,11 @@
                         <!-- users list -->
                         <div class="users-list">
                             <ul>
-                                <li @click = 'contactSelct(index)' v-if="element.visible === true" v-for="(element, index) in contacts">
+                                <li 
+                                    @click = 'contactSelct(index)' 
+                                    v-if="element.visible === true" 
+                                    v-for="(element, index) in contacts" 
+                                    :class="{'active': index === selectedContact}">
                                     <div class="user-dati flex align-i-center">
                                         <div class="user-img"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></div>
                                         <div class="user-name">{{ element.name }}</div>
@@ -64,7 +68,10 @@
                     <div class="user flex">
                         <div class="user-dati flex align-i-center">
                             <div class="user-img"><img :src="'img/avatar' + contacts[selectedContact].avatar + '.jpg'" alt=""></div>
-                            <div class="user-name">{{contacts[selectedContact].name}}</div>
+                            <div>
+                                <div class="user-name">{{contacts[selectedContact].name}}</div>
+                                <div class="last-access">Ultimo accesso alle ore:</div>
+                            </div>
                         </div>
                         <div class="user-options flex align-i-center">
                             <div><i class="fas fa-search"></i></div>
@@ -107,7 +114,7 @@
         </div>
 
     </div>
-    
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
