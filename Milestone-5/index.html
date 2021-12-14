@@ -57,6 +57,7 @@
                                     <div class="user-dati flex align-i-center">
                                         <div class="user-img"><img :src="'img/avatar' + element.avatar + '.jpg'" alt=""></div>
                                         <div class="user-name">{{ element.name }}</div>
+                                        <div>{{ lastMessage }}</div>
                                     </div>
                                 </li>
                             </ul>
@@ -87,7 +88,7 @@
                                 <div :class="{'message-received': element.status === 'received', 'message-sent': element.status === 'sent'}">
                                     <div class="message-menu relative">
                                         <i @click="selectMessageDelate(index)" class="fas fa-angle-down"></i>
-                                        <div class="active-menu absolute" :class="{'block': selectMessage === index }">
+                                        <div class="active-menu absolute none" :class="{'block': selectMessage === index }">
                                             <div class="info">Message info</div>
                                             <div @click="delate()" class="delate">Delate message</div>
                                         </div>

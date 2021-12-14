@@ -1,8 +1,7 @@
 // Milestone 5
 // Cancella messaggio: cliccando sul messaggio appare un menu a tendina
-//  che permette di cancellare il messaggio selezionato
+// che permette di cancellare il messaggio selezionato
 // Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti.
-// (Gli screenshot per la milestone 5 li trovate alla fine di questo messaggio)
 
 
 
@@ -20,6 +19,8 @@ const app = new Vue(
             sendMessage: '',
                 
             userFilter: '',
+
+            lastMessage: '',
 
             contacts: [
                 {
@@ -147,12 +148,17 @@ const app = new Vue(
           },
 
           delate: function(){
-            this.contacts[this.selectedContact].messages.splice(0, 1)
+            this.contacts[this.selectedContact].messages.splice(this.selectMessage, 1)
           },
 
           selectMessageDelate: function(indice){
             this.selectMessage = indice
-            alert(indice)
+          },
+
+          selectLastMessage: function(){
+            this.contacts.messages.forEach(element, index =>{
+                this.lastMessage = element[0].text
+            })
           }
     
         }
