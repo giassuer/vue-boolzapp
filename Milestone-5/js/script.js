@@ -113,6 +113,7 @@ const app = new Vue(
 
            contactSelct: function(indice){
                 this.selectedContact = indice
+                this.selectMessage = null
            },
 
            newMessage: function(){  
@@ -152,7 +153,12 @@ const app = new Vue(
           },
 
           selectMessageDelate: function(indice){
-            this.selectMessage = indice
+              if (indice === this.selectMessage) {
+                this.selectMessage = null
+              }else{
+                this.selectMessage = indice
+              }
+            
           },
     
         }
